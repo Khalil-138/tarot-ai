@@ -1,0 +1,98 @@
+body {
+  background: #0d0d14;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  margin: 0;
+}
+
+.container {
+  width: 700px;
+  max-width: 90%;
+}
+
+h1 {
+  text-align: center;
+}
+
+#chat {
+  background: #171722;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 250px;
+  margin-top: 20px;
+}
+
+.mensagem {
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.ia {
+  background: #23233a;
+}
+
+button {
+  margin-top: 20px;
+  background: #6b46c1;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: opacity .3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.cartas {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.carta {
+  text-align: center;
+}
+
+.carta img {
+  width: 140px;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgba(120,90,255,.35);
+  transition: transform .3s;
+}
+
+.carta img:hover {
+  transform: scale(1.05);
+}
+
+.revelar {
+  animation: revelarCarta .8s ease;
+}
+
+@keyframes revelarCarta {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
