@@ -111,29 +111,35 @@ botao.addEventListener("click", () => {
 
   }, 1200);
 
-  setTimeout(() => {
+  setTimeout(async () => {
+
+  try {
+
+    const resposta = await fetch("/reading", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ cartas })
+    });
+
+    const dados = await resposta.json();
 
     falarIA(`
       <strong>Leitura simbólica</strong><br><br>
-
-      Surge um caminho marcado por
-      ${significados[cartas[0]]}
-
-      Também se fazem presentes temas de
-      ${significados[cartas[1]]}
-
-      e sinais ligados a
-      ${significados[cartas[2]]}
-
-      <br><br>
-
-      Observe quais dessas imagens parecem ecoar com seu momento atual.
-      A leitura não determina destinos — ela convida à reflexão.
+      ${dados.leitura}
     `);
 
-    botao.disabled = false;
-    botao.textContent = "Nova leitura";
+  } catch (erro) {
 
-  }, 3200);
+    falarIA("Não foi possível obter a leitura.");
+
+    console.error(erro);
+  }
+
+  botao.disabled = false;
+  botao.textContent = "Nova leitura";
+
+}, 3200);
 
 });
