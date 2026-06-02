@@ -6,6 +6,7 @@ body {
     #0d0d14;
   color: #eee;
   font-family: Arial, sans-serif;
+  font-size: 100%; /* Usa o padrão de 16px do navegador como base acessível */
   display: flex;
   justify-content: center;
   padding: 40px 20px;
@@ -30,7 +31,7 @@ body::before {
 }
 
 .container {
-  width: 1000px;
+  width: 1100px;
   max-width: 95%;
   position: relative;
   z-index: 1;
@@ -38,19 +39,29 @@ body::before {
 
 h1 {
   text-align: center;
-  font-size: 2.3rem;
-  margin-bottom: 10px;
+  font-size: 2.75rem; /* Levemente ajustado para equilíbrio visual */
+  margin-bottom: 12px;
   color: #f2e8ff;
   text-shadow:
     0 0 10px rgba(170, 120, 255, 0.8),
     0 0 20px rgba(120, 90, 255, 0.4);
 }
 
+.subtitulo {
+  text-align: center;
+  color: #bfa8ff;
+  margin-top: -5px;
+  margin-bottom: 30px;
+  font-size: 1.2rem; /* Mais visível */
+  font-style: italic;
+  opacity: 0.95;
+}
+
 #chat {
   background: rgba(23, 23, 34, 0.9);
   border: 1px solid rgba(120, 90, 255, 0.25);
   border-radius: 18px;
-  padding: 25px;
+  padding: 35px 30px;
   min-height: 250px;
   margin-top: 20px;
   backdrop-filter: blur(8px);
@@ -60,10 +71,11 @@ h1 {
 }
 
 .mensagem {
-  padding: 16px;
+  padding: 20px;
   border-radius: 14px;
   margin-bottom: 18px;
-  line-height: 1.7;
+  line-height: 1.75;
+  font-size: 1.125rem; /* Equivalente a 18px fixos, excelente para leitura */
 }
 
 .ia {
@@ -72,14 +84,15 @@ h1 {
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 25px;
   background: linear-gradient(135deg, #6b46c1, #8b5cf6);
   color: white;
   border: none;
-  padding: 15px 24px;
+  padding: 18px 24px;
   border-radius: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 1.15rem; /* Botão com boa área de clique e leitura clara */
+  font-weight: bold;
   width: 100%;
   transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(120, 90, 255, 0.25);
@@ -99,15 +112,15 @@ button:disabled {
   display: flex;
   gap: 25px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 25px;
   flex-wrap: wrap;
 }
 
 .carta {
   text-align: center;
-  max-width: 320px;
+  max-width: 360px; /* Um pouco mais largo para acomodar o texto maior sem quebras bruscas */
   background: rgba(255,255,255,0.03);
-  padding: 15px;
+  padding: 20px;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.05);
   transition: all 0.3s ease;
@@ -119,7 +132,7 @@ button:disabled {
 }
 
 .carta img {
-  width: 180px;
+  width: 220px;
   border-radius: 14px;
   box-shadow:
     0 0 25px rgba(120,90,255,.45),
@@ -132,20 +145,21 @@ button:disabled {
 }
 
 .carta h3 {
-  margin: 15px 0 10px;
+  margin: 18px 0 12px;
   color: #f3e8ff;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   text-shadow:
     0 0 8px rgba(170,120,255,.7),
     0 0 15px rgba(120,90,255,.4);
 }
 
 .significado {
-  margin-top: 12px;
-  padding: 15px;
+  margin-top: 15px;
+  padding: 20px;
   text-align: left;
-  font-size: 0.92rem;
-  line-height: 1.7;
+  font-family: Georgia, serif; /* Opcional: serifas dão um tom mais intimista e confortável para textos de tarô */
+  font-size: 1.125rem; /* Aumentado para 18px para leitura fluida dos parágrafos */
+  line-height: 1.8;
   background: rgba(255,255,255,0.04);
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.05);
@@ -154,7 +168,9 @@ button:disabled {
 .significado strong {
   color: #d8b4fe;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+  font-family: Arial, sans-serif; /* Mantém o título da seção em sans-serif se preferir */
+  font-size: 1.25rem; /* Destaque claro para as palavras-chave */
   text-shadow: 0 0 8px rgba(170,120,255,.5);
 }
 
@@ -167,7 +183,6 @@ button:disabled {
     opacity: 0;
     transform: translateY(20px) scale(0.85);
   }
-
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -176,39 +191,60 @@ button:disabled {
 
 /* Responsivo */
 @media (max-width: 768px) {
-
   body {
-    padding: 20px 10px;
+    padding: 20px 12px;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 2.15rem;
+  }
+
+  .subtitulo {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  #chat {
+    padding: 20px;
+  }
+
+  .mensagem {
+    font-size: 1.05rem; /* Mantém por volta de 17px no mobile */
+    padding: 16px;
   }
 
   .cartas {
     flex-direction: column;
     align-items: center;
+    gap: 30px;
   }
 
   .carta {
     width: 100%;
-    max-width: 350px;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .carta img {
-    width: 200px;
+    width: 200px; /* Reduzido levemente para sobrar mais espaço lateral de respiro no mobile */
   }
-  
-  .subtitulo {
-  text-align: center;
-  color: #bfa8ff;
-  margin-top: -10px;
-  margin-bottom: 20px;
-  font-style: italic;
-  opacity: 0.9;
-}
+
+  .carta h3 {
+    font-size: 1.45rem;
+  }
 
   .significado {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    padding: 16px;
+  }
+
+  .significado strong {
+    font-size: 1.15rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+    padding: 16px;
   }
 }
